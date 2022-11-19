@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, { type PropsWithChildren } from 'react';
+import React, { type PropsWithChildren } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -17,20 +17,11 @@ import {
   Text,
   useColorScheme,
   View,
-} from 'react-native';
+} from "react-native";
+import { WeatherAppScreen } from "../WeatherAppScreen";
 
 const App = () => {
-
-  return (
-    <SafeAreaView>
-      <StatusBar />
-      <ScrollView>
-        <View>
-          <Text>Działa</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+  return <WeatherAppScreen />;
 };
 
 export default App;
