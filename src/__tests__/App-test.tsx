@@ -1,9 +1,9 @@
-const add = (a: number, b: number) => {
-  return a + b;
-};
+import React from "react";
+import renderer from "react-test-renderer";
+import App from "../screens/app/App";
 
 describe("App", () => {
-  test("first test", () => {
-    expect(add(2, 2)).toBe(4);
+  test("Should render correctly", () => {
+    renderer.create(<App />);
   });
 });
