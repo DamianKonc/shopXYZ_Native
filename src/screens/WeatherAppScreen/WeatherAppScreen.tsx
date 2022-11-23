@@ -20,6 +20,9 @@ const WeatherAppScreen = () => {
         <Text style={styles.day}>{now.format("dddd")}</Text>
       </View>
       <WeatherCurrent />
+      <Text testID="weatherAppScreen-divider" style={styles.divider}>
+        Or
+      </Text>
       <WeatherCoordinates />
     </LinearGradient>
   );
@@ -42,6 +45,10 @@ const styles = StyleSheet.create({
   day: {
     color: Colors.WHITE,
     fontSize: 21,
+  },
+  divider: {
+    color: Colors.WHITE,
+    textAlign: "center",
   },
 });
 

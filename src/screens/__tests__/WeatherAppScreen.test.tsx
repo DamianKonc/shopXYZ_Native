@@ -46,6 +46,11 @@ describe("WeatherAppScreen", () => {
     wrapper.getByTestId("mock-weather-current");
   });
 
+  test("Should contain a divider", () => {
+    const wrapper = render(<WeatherAppScreen />);
+    wrapper.getByTestId("weatherAppScreen-divider");
+  });
+
   test("Should contain a section to get coordinates", () => {
     (WeatherCoordinates as jest.Mock).mockReturnValue(
       <View testID="mock-coordinates-current"></View>
