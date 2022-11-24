@@ -2,7 +2,7 @@ import { render } from "@testing-library/react-native";
 import { View } from "react-native";
 import WeatherCoordinates from "../../components/weatherCoordinates/WeatherCoordinates";
 import WeatherCurrent from "../../components/weatherCurrent/WeatherCurrent";
-import { WeatherAppScreen } from "../WeatherAppScreen";
+import { WeatherAppScreen } from "../weatherAppScreen";
 
 jest.mock("../../components/weatherCoordinates/WeatherCoordinates", () =>
   jest.fn().mockReturnValue(null)

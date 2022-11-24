@@ -18,12 +18,13 @@ import {
   useColorScheme,
   View,
 } from "react-native";
-import { WeatherAppScreen } from "../WeatherAppScreen";
+import { WeatherAppScreen } from "../weatherAppScreen";
+import WeatherNavigation from "../WeatherNavigation";
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <WeatherAppScreen />
+      <WeatherNavigation />
     </SafeAreaView>
   );
 };
