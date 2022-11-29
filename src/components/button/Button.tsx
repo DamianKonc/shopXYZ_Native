@@ -1,4 +1,4 @@
-import { StyleSheet, View, ViewProps, Text } from "react-native";
+import { StyleSheet, ViewProps, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import LinearGradient from "react-native-linear-gradient";
 import { ActivityIndicator } from "react-native-paper";
@@ -16,7 +16,7 @@ const Button = (props: Props) => {
     <TouchableOpacity onPress={onPress} testID="button">
       <LinearGradient
         {...others}
-        colors={[Colors.LIGHTER_GRAY, Colors.DARK_GRAY]}
+        colors={[Colors.LIGHT_GRAY, Colors.DARK_GRAY]}
         style={[styles.container, style]}
       >
         {loading ? (

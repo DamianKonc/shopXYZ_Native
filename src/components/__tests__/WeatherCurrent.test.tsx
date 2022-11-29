@@ -1,5 +1,13 @@
 import WeatherCurrent from "../weatherCurrent/WeatherCurrent";
-import { render } from "@testing-library/react-native";
+import { fireEvent, render, waitFor } from "@testing-library/react-native";
+import { useNavigation } from "@react-navigation/native";
+
+jest.mock("@react-navigation/native", () => {
+  return {
+    ...jest.requireActual<object>("@react-navigation/native"),
+    useNavigation: jest.fn(),
+  };
+});
 
 describe("WeatherCurrent", () => {
   test("Should render correctly", () => {
@@ -7,7 +15,21 @@ describe("WeatherCurrent", () => {
     wrapper.getByTestId("weather-current");
   });
 
-  test("Should navigate to weather screen with location", () => {
-    throw new Error("Test not implemented");
+  test("Should navigate to weather screen with location", async () => {
+    const mockNavigate = jest.fn();
+    (useNavigation as jest.Mock).mockReturnValueOnce({
+      navigate: mockNavigate,
+    });
+
+    const wrapper = render(<WeatherCurrent />);
+    const button = wrapper.getByTestId("weather-current");
+    fireEvent.press(button);
+
+    await waitFor(() => {
+      expect(mockNavigate).toHaveBeenCalledWith("Weather", {
+        latitude: 0,
+        longitude: 0,
+      });
+    });
   });
 });
