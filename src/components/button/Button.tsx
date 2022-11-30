@@ -16,7 +16,7 @@ const Button = (props: Props) => {
     <TouchableOpacity onPress={onPress} testID="button">
       <LinearGradient
         {...others}
-        colors={[Colors.LIGHT_GRAY, Colors.DARK_GRAY]}
+        colors={[Colors.LIGHTER_GRAY, Colors.DARK_GRAY]}
         style={[styles.container, style]}
       >
         {loading ? (

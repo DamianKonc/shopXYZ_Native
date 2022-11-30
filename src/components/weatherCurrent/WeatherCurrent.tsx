@@ -1,7 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useCallback } from "react";
-import { View } from "react-native";
-import { Button } from "react-native-paper";
+import { Button } from "../button";
 import LocationService from "../../services/location/LocationService";
 
 const WeatherCurrent = () => {
@@ -13,7 +12,7 @@ const WeatherCurrent = () => {
   }, [navitagion]);
 
   return (
-    <Button label="aaa" onPress={handleFetchWeather} testID="weather-current" />
+    <Button label="" onPress={handleFetchWeather} testID="weather-current" />
   );
 };
 
