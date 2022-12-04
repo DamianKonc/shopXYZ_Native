@@ -89,7 +89,9 @@ describe("WeatherCurrent", () => {
       const button = wrapper.getByTestId("weather-current");
       fireEvent.press(button);
 
-      return expect(wrapper.findByTestId("button-loading")).rejects.toThrow();
+      return waitForElementToBeRemoved(() =>
+        wrapper.getByTestId("button-loading")
+      );
     });
   });
 });
