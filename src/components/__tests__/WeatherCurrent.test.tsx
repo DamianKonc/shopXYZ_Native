@@ -8,6 +8,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import LocationService from "../../services/location/LocationService";
 import { act } from "react-test-renderer";
+import { Colors } from "../../styles/generalStyles/constans";
 
 jest.mock("@react-navigation/native", () => {
   return {
@@ -91,6 +92,21 @@ describe("WeatherCurrent", () => {
 
       return waitForElementToBeRemoved(() =>
         wrapper.getByTestId("button-loading")
+      );
+    });
+  });
+  describe("Error", () => {
+    test("Should be displayed after fetching position has failed", async () => {
+      jest
+        .spyOn(LocationService, "getCurrentPosition")
+        .mockRejectedValueOnce(new Error(""));
+
+      const wrapper = render(<WeatherCurrent />);
+      const button = wrapper.getByTestId("weather-current");
+      fireEvent.press(button);
+
+      await waitFor(() =>
+        expect(button).toHaveStyle({ borderColor: Colors.ERROR })
       );
     });
   });
