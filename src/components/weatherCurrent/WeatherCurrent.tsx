@@ -11,6 +11,7 @@ const WeatherCurrent = () => {
   const navitagion = useNavigation();
 
   const handleFetchWeather = useCallback(async () => {
+    setError(false);
     setLoading(true);
     try {
       const position = await LocationService.getCurrentPosition();

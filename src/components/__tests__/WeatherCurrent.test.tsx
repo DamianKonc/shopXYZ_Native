@@ -109,5 +109,18 @@ describe("WeatherCurrent", () => {
         expect(button).toHaveStyle({ borderColor: Colors.ERROR })
       );
     });
+    test("Should be reset after fetching position again", async () => {
+      jest
+        .spyOn(LocationService, "getCurrentPosition")
+        .mockRejectedValueOnce(new Error(""));
+
+      const wrapper = render(<WeatherCurrent />);
+      const button = wrapper.getByTestId("weather-current");
+      fireEvent.press(button);
+
+      await waitFor(() =>
+        expect(button).not.toHaveStyle({ borderColor: Colors.ERROR })
+      );
+    });
   });
 });
