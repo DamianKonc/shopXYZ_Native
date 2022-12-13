@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, { type PropsWithChildren } from 'react';
+import React, { type PropsWithChildren } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -17,16 +17,18 @@ import {
   Text,
   useColorScheme,
   View,
-} from 'react-native';
+} from "react-native";
+
+import { ScreenView } from "../ScreenView";
 
 const App = () => {
-
   return (
     <SafeAreaView>
       <StatusBar />
       <ScrollView>
         <View>
           <Text>Działa</Text>
+          <ScreenView />
         </View>
       </ScrollView>
     </SafeAreaView>
